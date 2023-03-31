@@ -146,8 +146,14 @@ setup_zsh() {
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     sed -i '' 's/plugins=(git/plugins=(git zsh-syntax-highlighting/' ~/.zshrc
 
+    echo -e "${YELLOW}Install plugin zsh-autosuggestions${CLEAR}"
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    sed -i '' 's/plugins=(git/plugins=(git zsh-autosuggestions/' ~/.zshrc
+
     echo -e "${YELLOW}Install default plugins for python and docker${CLEAR}"
     sed -i '' 's/plugins=(git/plugins=(git python pip docker docker-compose/' ~/.zshrc
+
+    echo -e "${YELLOW}Install plugin web-search${CLEAR}"
 }
 
 
