@@ -220,6 +220,18 @@ php_laravel_packages() {
     echo -e "${YELLOW}Install default composer and laraval plugin for oh-my-zsh${CLEAR}"
     sed -i '' 's/plugins=(git/plugins=(git composer laravel laravel5/' ~/.zshrc
 }
+neovim_config ()
+{
+    echo -e "${YELLOW}set neovim config"
+  if [[ -d "~/.config" ]]; then
+return 
+else
+  mkdir ~/.config
+    
+  fi
+   cp -r nvim ~/.config/
+
+}
 install_all() {
 install_basic_tools
 install_dev_software
@@ -227,4 +239,5 @@ install_dev_tools
 setup_zsh
 installnode
 php_laravel_packages
+neovim_config
 }
