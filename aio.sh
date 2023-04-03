@@ -223,12 +223,12 @@ php_laravel_packages() {
 neovim_config ()
 {
     echo -e "${YELLOW}set neovim config"
-  if [[ -d "~/.config" ]]; then
-return 
-else
-  mkdir ~/.config
-    
-  fi
+    if [[ -d "~/.config" ]]; then
+      return 
+    else
+      mkdir ~/.config
+    fi
+    brew install neovim
    cp -r nvim ~/.config/
 
 }
