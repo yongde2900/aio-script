@@ -109,3 +109,22 @@ lspconfig["lua_ls"].setup({
     },
   },
 })
+-- configure php server
+lspconfig["intelephense"].setup(
+{
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
+)
+
+--configure pytho server
+lspconfig["pyre"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+
+--configure bash server
+lspconfig["bashls"].setup({
+  capabilities = capabilities,
+  on_attach=on_attach,
+})
