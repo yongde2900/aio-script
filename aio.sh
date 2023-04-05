@@ -232,6 +232,11 @@ neovim_config ()
    cp -r nvim ~/.config/
 
 }
+tmux_config(){
+  echo -e "${YELLOW}set tmux config"
+  cp ./.tmux.conf ~/
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
 install_all() {
 install_basic_tools
 install_dev_software
@@ -240,4 +245,5 @@ setup_zsh
 installnode
 php_laravel_packages
 neovim_config
+tmux_config
 }
