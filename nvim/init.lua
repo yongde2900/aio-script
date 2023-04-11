@@ -16,3 +16,10 @@ require("yongde.plugins.treesitter")
 require("yongde.plugins.gitsigns")
 require("yongde.plugins.lazygit")
 require("yongde.plugins.toggleterm")
+
+-- 更改vim-tmux-navigator的快捷鍵
+vim.g.tmux_navigator_no_mappings = 1
+vim.api.nvim_set_keymap("n", "<C-n>", "<cmd>TmuxNavigateLeft<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-m>", "<cmd>TmuxNavigateDown<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-,>", "<cmd>TmuxNavigateUp<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-.>", "<cmd>TmuxNavigateRight<CR>", { noremap = true, silent = true })
