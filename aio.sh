@@ -5,12 +5,6 @@ GREEN='\033[32m'  # Green
 YELLOW='\033[33m' # YELLOW
 CLEAR='\033[0m'   # Clear color and formatting
 echo "Start install"
-echo -e "${GREEN}===>${CLEAR}Install Google Chrome"
-echo -e "${GREEN}===>${CLEAR}Install Google Chrome"
-echo -e "${GREEN}===>${CLEAR}Install Google Chrome"
-echo -e "${GREEN}===>${CLEAR}Install Google Chrome"
-echo -e "${GREEN}===>${CLEAR}Install Google Chrome"
-echo -e "${GREEN}===>${CLEAR}Install Google Chrome"
 
 # Setup script for setting up a new macos machine
 install_dev_tools() {
