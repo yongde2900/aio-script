@@ -4,7 +4,6 @@ if not status then
 	return
 end
 
--- configure treesitter
 treesitter.setup({
 	-- enable syntax highlighting
 	highlight = {

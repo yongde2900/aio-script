@@ -1,3 +1,4 @@
+---@diagnostic disable: unused-local
 -- auto install packer if not installed
 local ensure_packer = function()
 	local fn = vim.fn
@@ -114,6 +115,11 @@ return packer.startup(function(use)
 	-- toggle term
 	use("akinsho/toggleterm.nvim")
 
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
+
+	use("lukas-reineke/indent-blankline.nvim")
+
+	use("folke/tokyonight.nvim")
 	if packer_bootstrap then
 		require("packer").sync()
 	end

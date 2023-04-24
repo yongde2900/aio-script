@@ -1,4 +1,5 @@
 require("yongde.plugins-setup")
+require("yongde.plugins.nvim-ufo")
 require("yongde.core.options")
 require("yongde.core.keymaps")
 require("yongde.core.colorscheme")
@@ -16,6 +17,7 @@ require("yongde.plugins.treesitter")
 require("yongde.plugins.gitsigns")
 require("yongde.plugins.lazygit")
 require("yongde.plugins.toggleterm")
+require("yongde.plugins.indent-blandline")
 
 -- 更改vim-tmux-navigator的快捷鍵
 vim.g.tmux_navigator_no_mappings = 1

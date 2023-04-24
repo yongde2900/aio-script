@@ -17,16 +17,18 @@ null_ls.setup({
 	sources = {
 		--  to disable file types use
 		--  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
-		-- formatting.prettier, -- js/ts formatter
-		formatting.eslint_d, -- js/ts formatter
+		formatting.prettier.with({
+			disabled_filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
+		}), -- js/ts formatter
+		formatting.eslint_d,
 		formatting.pint, -- php formatter
 		formatting.stylua, -- lua formatter
-		diagnostics.eslint_d.with({ -- js/ts linter
-			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
-			condition = function(utils)
-				return utils.root_has_file(".eslintrc") -- change file extension if you use something else
-			end,
-		}),
+		-- diagnostics.eslint_d.with({ -- js/ts linter
+		-- 	-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
+		-- 	condition = function(utils)
+		-- 		return utils.root_has_file(".eslintrc") -- change file extension if you use something else
+		-- 	end,
+		-- }),
 		diagnostics.phpstan, -- php linter
 	},
 	-- configure format on save
