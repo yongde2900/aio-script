@@ -1,27 +1,24 @@
-require("yongde.plugins-setup")
-require("yongde.plugins.nvim-ufo")
-require("yongde.core.options")
-require("yongde.core.keymaps")
-require("yongde.core.colorscheme")
-require("yongde.plugins.comment")
-require("yongde.plugins.nvim-tree")
-require("yongde.plugins.lualine")
-require("yongde.plugins.telescope")
-require("yongde.plugins.nvim-cmp")
-require("yongde.plugins.lsp.mason")
-require("yongde.plugins.lsp.lspsaga")
-require("yongde.plugins.lsp.lspconfig")
-require("yongde.plugins.lsp.null-ls")
-require("yongde.plugins.autopairs")
-require("yongde.plugins.treesitter")
-require("yongde.plugins.gitsigns")
-require("yongde.plugins.lazygit")
-require("yongde.plugins.toggleterm")
-require("yongde.plugins.indent-blandline")
+require "core"
 
--- 更改vim-tmux-navigator的快捷鍵
-vim.g.tmux_navigator_no_mappings = 1
-vim.api.nvim_set_keymap("n", "<C-n>", "<cmd>TmuxNavigateLeft<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-m>", "<cmd>TmuxNavigateDown<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-,>", "<cmd>TmuxNavigateUp<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-.>", "<cmd>TmuxNavigateRight<CR>", { noremap = true, silent = true })
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+
+if custom_init_path then
+  dofile(custom_init_path)
+end
+
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
+
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
